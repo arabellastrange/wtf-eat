@@ -317,3 +317,28 @@ code {
     outline-offset: 2px;
   }
 }
+.ingredient-input {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--bg);
+  border: 2px solid var(--accent-border);
+  width: 80%;
+  text-align: center;
+}
+
+.ingredient-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 80%;
+}
+
+
+.ingredient-tag {
+  padding: 0 0.25em;
+  color: var(--text-h);
+  font-size: 0.80em;
+  font-style: italic;
+}
