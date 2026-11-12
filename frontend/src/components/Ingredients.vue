@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import axios from 'axios'
 
 const ingredientInput = ref('')
 const ingredients = ref([])
@@ -25,7 +26,17 @@ function handleIngredientKeydown(event) {
 
 function handleSearch() {
   if (ingredients.value.length > 0) {
-    // send to python backend for processing
+    axios.get('/api/recipes/', {
+      params: {
+        ingredients: ingredients.value.join(',')
+      }
+    }).then(response => {
+          console.log(response.data);
+          // do something with response.data
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }
 }
 </script>
@@ -42,6 +53,7 @@ function handleSearch() {
         @keydown="handleIngredientKeydown"
         class="ingredient-input"
       />
+      <!--TODO: MAX 3-4 INGREDIENTS-->
       <div class="ingredient-tags" aria-label="Ingredients" aria-live="polite">
         <span
           v-for="(ingredient, index) in ingredients"
