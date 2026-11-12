@@ -1,5 +1,5 @@
 :root {
-  --text: #6b6375;
+  --text: #372e22;
   --text-h: #08060d;
   --bg: #e1cfb1;
   --border: #e5e4e7;
@@ -32,7 +32,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
+    --text: #372e22;
     --text-h: #f3f4f6;
     --bg: #e1cfb1;
     --border: #e5e4e7;
@@ -58,7 +58,7 @@ h1,
 h2 {
   font-family: var(--heading);
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--text);
 }
 
 h1 {
@@ -282,7 +282,7 @@ code {
   background-size: cover;
   background-position: right bottom;
   background-size: 220px auto;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-color: var(--bg);
 
   display: flex;
@@ -338,7 +338,7 @@ code {
 
 .ingredient-tag {
   padding: 0 0.25em;
-  color: var(--text-h);
+  color: var(--text);
   font-size: 0.80em;
   font-style: italic;
 }

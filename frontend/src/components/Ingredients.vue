@@ -22,6 +22,12 @@ function handleIngredientKeydown(event) {
     addIngredient()
   }
 }
+
+function handleSearch() {
+  if (ingredients.value.length > 0) {
+    // send to python backend for processing
+  }
+}
 </script>
 
 <template>
@@ -46,7 +52,7 @@ function handleIngredientKeydown(event) {
         </span>
       </div>
     </div>
-    <button type="button" class="search-button" @click="">
+    <button type="button" class="search-button" @click="handleSearch">
       Search!
     </button>
   </section>
