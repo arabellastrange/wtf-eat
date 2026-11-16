@@ -1,8 +1,15 @@
 from flask import Flask, jsonify, request
-from search import search_recipes
+from search import search_recipes, set_dataframe
 from flask_cors import CORS, cross_origin
 
-app = Flask(__name__)
+
+def init_app():
+    """Initialize the core application and set up the df."""
+    app = Flask(__name__, instance_relative_config=False)
+    set_dataframe()
+    return app
+
+app = init_app()
 ## allow cross-origin requests from the frontend port
 CORS(
     app,
@@ -10,7 +17,6 @@ CORS(
     methods=["GET"],
     supports_credentials=True
 )
-
 
 @app.route('/api/recipes/', methods=['GET'])
 def get_data():
