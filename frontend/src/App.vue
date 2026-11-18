@@ -18,7 +18,7 @@ function handleSearch(ingredients) {
     }
   }).then(response => {
         console.log(response.data);
-        recipes.value = [...recipes.value, ...response.data]; // response.data must be an array of recipes
+        recipes.value = response.data;
         hasSearched.value = true;
         // do something with response.data
       })
