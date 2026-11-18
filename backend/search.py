@@ -18,6 +18,7 @@ def set_dataframe():
         print(f"Saved dataframe to local file")
     
     print(f"Filtering dataframe for empty ingredients")
+    #TODO filters too much handle
     recipe_df = recipe_df.dropna(subset=['RecipeIngredientParts'])
     recipe_df = recipe_df[['AuthorName', 'TotalTime', 'Keywords', 'Name',
                             'RecipeIngredientParts', 'RecipeIngredientQuantities', 
@@ -26,8 +27,8 @@ def set_dataframe():
 
 
 def search_recipes(ingredients: list) -> pd.DataFrame:
-    #TODO: prep return for jsonify 
     print(f"Searching for recipes with ingredients: {ingredients}")
+    # todo handle unmatched ingredient subset vs must contain all ingredients?
     matching_recipes = recipe_df[recipe_df['RecipeIngredientParts'].str
                                  .contains('|'.join(ingredients), case=False)]
     print(f"Number of matching recipes found: {len(matching_recipes)}")

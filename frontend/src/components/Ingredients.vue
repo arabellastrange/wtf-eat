@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
 
 const ingredientInput = ref('')
 const ingredients = ref([])
+
+const emit = defineEmits(['search'])
 
 function addIngredient() {
   const ingredient = ingredientInput.value.trim()
@@ -24,19 +25,10 @@ function handleIngredientKeydown(event) {
   }
 }
 
-function handleSearch() {
+function search() {
   if (ingredients.value.length > 0) {
-    axios.get('/api/recipes/', {
-      params: {
-        ingredients: ingredients.value.join(',')
-      }
-    }).then(response => {
-          console.log(response.data);
-          // do something with response.data
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    // Emit the search event with the ingredients array
+    emit('search', ingredients.value)
   }
 }
 </script>
@@ -49,12 +41,11 @@ function handleSearch() {
         v-model="ingredientInput"
         type="text"
         placeholder="Add an ingredient"
-        aria-label="Add an ingredient"
         @keydown="handleIngredientKeydown"
         class="ingredient-input"
       />
       <!--TODO: MAX 3-4 INGREDIENTS-->
-      <div class="ingredient-tags" aria-label="Ingredients" aria-live="polite">
+      <div class="ingredient-tags">
         <span
           v-for="(ingredient, index) in ingredients"
           :key="`${ingredient}-${index}`"
@@ -64,7 +55,7 @@ function handleSearch() {
         </span>
       </div>
     </div>
-    <button type="button" class="search-button" @click="handleSearch">
+    <button type="button" class="search-button" @click="search" :disabled="ingredients.length === 0">
       Search!
     </button>
   </section>
