@@ -1,5 +1,7 @@
 # What Should I Eat For Dinner
 
+![homepage](homepage.png)
+
 What Should I Eat For Dinner is a mini-app designed to help you use up the wilting spinach in your fridge and find a dinner recipe for today and maybe even lunch tomorrow. WSIEFD is built with Vue 3 in Vite.
 
 ### Deployment Instructions
