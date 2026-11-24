@@ -49,7 +49,7 @@ function search() {
         <span
           v-for="(ingredient, index) in ingredients"
           :key="`${ingredient}-${index}`"
-          class="ingredient-tag"
+          class="tag-text"
         >
           {{ ingredient + ';' }} <!-- sanitizes input by default-->
         </span>

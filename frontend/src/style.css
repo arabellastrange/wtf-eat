@@ -5,7 +5,7 @@
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #a1614a;
-  --accent-bg: rgba(161, 97, 74, 0.15);
+  --accent-bg: rgba(200, 160, 146, 0.543);
   --accent-border: rgba(161, 97, 74, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
@@ -15,7 +15,7 @@
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  font: 16px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -357,9 +357,27 @@ code {
 }
 
 
-.ingredient-tag {
+.tag-text {
   padding: 0 0.25em;
   color: var(--text);
   font-size: 0.80em;
   font-style: italic;
+}
+
+.recipe-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 80%;
+  max-height: 75vh;
+}
+
+.recipe-card {
+  background: var(--accent-bg);
+  border-radius: 8px;
+  padding: 0.5em;
+  max-width: 25%;
+  max-height: 75vh;
+  overflow: auto;
 }
