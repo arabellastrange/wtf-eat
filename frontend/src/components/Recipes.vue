@@ -7,7 +7,8 @@ defineProps({
 })
 
 function parseArray(value) {
-  return value.split(',').map(ingredient => ingredient.replaceAll(/[" c()]/gm, '').trim())
+    // TODO drop c with c( but not all c in  string
+  return value.split(',').map(ingredient => ingredient.replaceAll(/["()]/gm, '').trim())
 }
 
 </script>
