@@ -380,4 +380,9 @@ code {
   max-width: 25%;
   max-height: 75vh;
   overflow: auto;
+  text-align: left;
+
+  h4 {
+    text-align: center;
+  }
 }

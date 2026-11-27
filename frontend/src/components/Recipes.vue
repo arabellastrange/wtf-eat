@@ -26,6 +26,7 @@ function parseArray(value) {
                         {{ ingredient }}
                     </li>
                 </ul>
+                <h5>Steps:</h5>
                 <ul class="recipe-instructions">
                     <li v-for="instruction in parseArray(recipe.RecipeInstructions)" :key="instruction">
                         {{ instruction }}
