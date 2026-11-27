@@ -7,8 +7,8 @@ defineProps({
 })
 
 function parseArray(value) {
-    // TODO drop c with c( but not all c in  string
-  return value.split(',').map(ingredient => ingredient.replaceAll(/["()]/gm, '').trim())
+    // first char in string is useless 'c'
+  return value.substring(1, value.length - 1).split(',').map(ingredient => ingredient.replaceAll(/["()]/gm, '').trim())
 }
 
 </script>
@@ -24,6 +24,11 @@ function parseArray(value) {
                 <ul>
                     <li v-for="ingredient in parseArray(recipe.RecipeIngredientParts)">
                         {{ ingredient }}
+                    </li>
+                </ul>
+                <ul class="recipe-instructions">
+                    <li v-for="instruction in parseArray(recipe.RecipeInstructions)" :key="instruction">
+                        {{ instruction }}
                     </li>
                 </ul>
             </div>
